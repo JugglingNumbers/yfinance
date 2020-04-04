@@ -281,7 +281,7 @@ class TickerBase():
 
         # holders
         url = "{}/{}".format(self._scrape_url, self.ticker)
-        _pd.read_html(url+'/holders')
+        holders = _pd.read_html(url+'/holders')
         try:
             self._major_holders = holders[0]
             self._institutional_holders = holders[1]
