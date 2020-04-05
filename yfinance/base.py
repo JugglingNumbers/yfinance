@@ -249,8 +249,9 @@ class TickerBase():
 
     def _get_fundamentals(self, kind=None, proxy=None):
         def cleanup(data):
+            df = _pd.DataFrame(data)
             try:
-                df = _pd.DataFrame(data).drop(columns=['maxAge'])
+                df = df.drop(columns=['maxAge'])
             except:
                 pass
             for col in df.columns:
